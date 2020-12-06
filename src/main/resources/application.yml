@@ -8,21 +8,16 @@ spring:
     active: dev,import
   main:
     banner-mode: "off"
----
 import:
-  size: -1
-  filepath: /data/MetObjects.csv
+  size: "-1"
+  filepath: "/data/MetObjects.csv"
+---
 spring:
   profiles: dev
   datasource:
     url: "jdbc:h2:mem:museum:"
     driverClassName: org.h2.Driver
-
-
 ---
-import:
-  size: -1
-  filepath: /data/MetObjects.csv
 spring:
   profiles: prod
   datasource:

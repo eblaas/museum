@@ -67,14 +67,14 @@ Why REST API:
 
 ```shell script
 # docker image is available on docker hub, including test data, be patient with download :)
-docker run --rm -p 8080:8080 eblaas:museum -e IMPORT_SIZE=30000
+docker run --rm -p 8080:8080 -e IMPORT_SIZE=30000 eblaas:museum
 
 # check if object with id 2034 fits, positive fit
 curl -X GET "http://localhost:8080/api/v1/objects/2034?maxHeight=90&maxWidth=140.5" | jq
 
 # check if object with id 2034 fits, negative fit
-curl -X GET "http://localhost:8080/api/v1/objects/2034?maxHeight=10&maxWidth=140.5" | jq
+curl -X GET "http://localhost:8080/api/v1/objects/2034?maxHeight=50&maxWidth=140.5" | jq
 
 # list objects
-http://localhost:8080/api/v1/objects/?minHeight=50&minWidth=20 | jq
+curl -X GET "http://localhost:8080/api/v1/objects/?minDepth=5&minHeight=5&minWeight=5&minWidth=5&maxHeight=35"  | jq
 ```
